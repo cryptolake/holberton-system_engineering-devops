@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # custom ls
 
-ls=$(ls | cut -d "-" -f 2)
+ls=$(find -not -path "." | cut -d"/" -f 2 | cut -d "-" -f 2)
 
 for file in $ls
 do
