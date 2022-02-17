@@ -2,7 +2,7 @@
 # testing files
 file="school"
 
-if [ -e "$file" ]; then
+if [ -e $file ] || [ -d $file ]; then
 	echo "school file exists"
 	if [ -s "$file" ]; then
 		echo "school file is not empty"
