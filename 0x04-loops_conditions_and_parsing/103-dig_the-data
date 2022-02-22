@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# sort unique values awk
+
+awk 'BEGIN { FS="[ \"]+"; PROCINFO["sorted_in"] = "@val_num_asc" } { a[$1,$9]++; } END { for (comb in a) { split(comb, sep, SUBSEP);printf "%d %s %d\n", a[comb], sep[1], sep[2]; } }' ./apache-access.log | tac
