@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# show attached ips
 ifconfig | grep 'inet ' | awk {'print $2'}

@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# listen to telnet
 nc -l -p 98 -t localhost
