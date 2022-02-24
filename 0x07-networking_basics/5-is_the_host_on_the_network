@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#ping ip 5 times
 
 case $1 in
 	"")
