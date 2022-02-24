@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+case $1 in
+	"")
+		echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+		;;
+	*)
+		ping -c 5 $1
+		;;
+esac
