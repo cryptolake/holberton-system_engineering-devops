@@ -1,5 +1,25 @@
 #!/usr/bin/env bash
 # install nginx and add page
+config="
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location / {
+                try_files \$uri \$uri/ =404;
+        }
+
+}
+"
 apt-get -y install nginx
 rm -rf /var/www/html/*
+
+echo -e $config > /etc/nginx/sites-available
+
 echo "Hello World" > /var/www/html/index.html
