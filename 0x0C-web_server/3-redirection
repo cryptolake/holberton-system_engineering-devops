@@ -23,6 +23,6 @@ server {
 apt-get -y update
 apt-get -y install nginx
 
-echo -e $config > /etc/nginx/sites-enabled/default
+echo -e "$config" > /etc/nginx/sites-enabled/default
 echo "Hello World" > /var/www/html/index.nginx-debian.html
 service nginx restart
