@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# install nginx and add page
+config="
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location / {
+                try_files \$uri \$uri/ =404;
+        }
+				location /redirect_me {
+				        return 301 https://www.youtube.com/watch?v=dQw4w9WgXcQ;
+				}
+
+        error_page 404 /custom_404.html;
+        location = /custom_404.html {
+                root /var/www/html;
+                internal;
+        }
+}
+
+"
+apt-get -y update
+apt-get -y install nginx
+
+echo -e "$config" > /etc/nginx/sites-enabled/default
+echo "Hello World" > /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+service nginx restart
