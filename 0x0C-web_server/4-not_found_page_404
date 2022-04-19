@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # install nginx and add page
 config="
+
 server {
         listen 80 default_server;
         listen [::]:80 default_server;
@@ -29,7 +30,8 @@ server {
 apt-get -y update
 apt-get -y install nginx
 
-echo -e "$config" > /etc/nginx/sites-enabled/default
 echo "Hello World" > /var/www/html/index.nginx-debian.html
 echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+echo -e "$config" > /etc/nginx/sites-enabled/default
+
 service nginx restart
