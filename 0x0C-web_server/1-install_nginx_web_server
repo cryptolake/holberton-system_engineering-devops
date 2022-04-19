@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # install nginx and add page
 apt-get -y install nginx
-echo "Hello World" > /usr/share/nginx/html/index.html
+rm -rf /var/www/html/*
+echo "Hello World" > /var/www/html/index.html
