@@ -4,7 +4,7 @@
 config="
 
 frontend Local_Server
-		bind $(hostname -i):80
+    bind $(hostname -I):80
     mode http
     default_backend My_Web_Servers
 
@@ -12,7 +12,7 @@ backend My_Web_Servers
     mode http
     balance roundrobin
     server 3598-web-01  34.148.149.199:80
-		server 3598-web-02  35.231.224.229:80
+    server 3598-web-02  35.231.224.229:80
 
 "
 apt-get -y update
