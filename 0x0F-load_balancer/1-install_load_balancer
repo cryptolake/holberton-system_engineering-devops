@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Install and config load balaner
+
+config="
+
+frontend Local_Server
+		bind $(hostname -i):80
+    mode http
+    default_backend My_Web_Servers
+
+backend My_Web_Servers
+    mode http
+    balance roundrobin
+    server 3598-web-01  34.148.149.199:80
+		server 3598-web-02  35.231.224.229:80
+
+"
+apt-get install --no-install-recommends software-properties-commonapt-get -y update
+add-apt-repository ppa:vbernat/haproxy-2.4
+apt-get install haproxy=2.4.\*
+
+echo -e "$config" > /etc/haproxy/haproxy.cfg
+
+service haproxy restart
