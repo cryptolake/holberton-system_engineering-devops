@@ -22,6 +22,6 @@ apt-get -y install haproxy=2.4.\*
 
 echo -e "$config" >> /etc/haproxy/haproxy.cfg
 # add to initscript
-echo "ENABLED=1" >> /etc/default/haproxy
+echo -e "\nENABLED=1\n" >> /etc/default/haproxy
 
 service haproxy restart
