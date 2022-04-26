@@ -15,13 +15,14 @@ backend My_Web_Servers
     server 3598-web-02  35.231.224.229:80 check
 
 "
-apt-get -y update
-apt-get -y install --no-install-recommends software-properties-common
-add-apt-repository -y ppa:vbernat/haproxy-2.4
-apt-get -y install haproxy=2.4.\*
+sudo apt-get -y update
+sudo apt-get -y install --no-install-recommends software-properties-common
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.4
 
-echo -e "$config" >> /etc/haproxy/haproxy.cfg
-# add to initscript
-echo -e "\nENABLED=1\n" >> /etc/default/haproxy
+sudo apt-get -y install haproxy=2.4.\*
 
-service haproxy restart
+sudo echo -e "$config" >> /etc/haproxy/haproxy.cfg
+
+sudo echo -e "\nENABLED=1\n" >> /etc/default/haproxy
+
+sudo service haproxy restart
