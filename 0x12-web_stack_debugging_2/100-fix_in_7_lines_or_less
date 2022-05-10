@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# run nginx as nginx
+pkill apache
+chown -R nginx:nginx /etc/nginx
+chmod +r /etc/nginx/nginx.conf
+sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default 
+su -c nginx nginx
