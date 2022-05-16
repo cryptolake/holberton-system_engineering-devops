@@ -16,7 +16,10 @@ if __name__ == "__main__":
         td = {"task": todo.get('title'),
               "completed": str(todo.get('completed')),
               "username": user.get('username')}
-        user_dict[str(user.get('id'))].append(td)
+        try:
+            user_dict.get(str(user.get('id'))).append(td)
+        except Exception:
+            pass
 
     with open(str(user.get('id'))+".json", 'w') as f:
         json.dump(user_dict, f)
