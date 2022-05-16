@@ -14,9 +14,9 @@ if __name__ == "__main__":
                 """.format(str(user.get('id')))).json()
         users_dict[str(user.get('id'))] = []
         for todo in todos:
-            td = {"task": todo.get('title'),
-                  "completed": todo.get('completed'),
-                  "username": user.get('username')}
+            td = {"username": user.get('username'),
+                  "task": todo.get('title'),
+                  "completed": todo.get('completed')}
             users_dict[str(user.get('id'))].append(td)
 
     with open("todo_all_employees.json", 'w') as f:
